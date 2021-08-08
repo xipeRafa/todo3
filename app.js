@@ -1,7 +1,7 @@
-ID("all").addEventListener("click", ()=> { instFilters.filter() })
-ID("removeComplited").addEventListener("click", ()=> { instFilters.cleanCompleted() })
-ID("active").addEventListener("click", ()=> { instFilters.filter('toggle', true) })
-ID("completed").addEventListener("click", ()=> { instFilters.filter('toggle', false) })
+ID("all").addEventListener("click", ()=> instFilters.filter() )
+ID("removeComplited").addEventListener("click", ()=> instFilters.cleanCompleted() )
+ID("active").addEventListener("click", ()=> instFilters.filter('toggle', true) )
+ID("completed").addEventListener("click", ()=> instFilters.filter('toggle', false) )
 
 const inputText = document.querySelector('#inputTextId');
 
@@ -29,11 +29,11 @@ class Citas {
     /*addCita(cita) { this.citas.unshift(cita) } */
 
     toggleItem(toggle) { this.citas.map( cita => cita.id === toggle ? cita.toggle = !cita.toggle : cita.toggle = cita.toggle );
-                         instFilters.cantActive()}
+                         instFilters.cantActive() }
 
-    editCita(update) { this.citas = this.citas.map( cita => cita.id === update.id ? update : cita)}
+    editCita(update) { this.citas = this.citas.map( cita => cita.id === update.id ? update : cita )}
 
-    deleteCita(id) { this.citas = this.citas.filter( cita => cita.id !== id) }
+    deleteCita(id) { this.citas = this.citas.filter( cita => cita.id !== id); instFilters.cantActive() }
 
     search(key, value) {
             let copy = [...this.citas] 
@@ -48,8 +48,9 @@ class Citas {
     completed(){ this.citas = this.citas.filter( cita => cita.toggle === false ) };
 
     cant(){
+        const Active = this.citas.filter(cita => cita.toggle === false)
         let cant = ID('citasActive'); 
-        cant.innerHTML = `<p>Items Active: ${ this.citas.filter(cita => cita.toggle === false).length }</p>`
+        cant.innerHTML = `<p>Items Active: ${ Active.length } </p>`
     }
 }
 
@@ -74,11 +75,11 @@ function newCita(e) {
     }
 
     ui.printCitas(instCitas);
-    reiniciarObjeto() //138 
+    reiniciarObjeto() 
     form.reset();
 }
 
-function reiniciarObjeto() { citaObj.inputTextName = '' }
+function reiniciarObjeto() { citaObj.inputTextName = '' , citaObj.toggle = false }
  
 function deleteCita(id) {
     instCitas.deleteCita(id);
@@ -137,12 +138,12 @@ class UI {
             textHeader2.innerHTML = `${inputTextName}`;
 
             const btnDelete = document.createElement('button');
-            btnDelete.onclick = () => deleteCita(id); // 134
+            btnDelete.onclick = () => deleteCita(id); 
             btnDelete.classList.add('btn-danger');
             btnDelete.innerHTML = 'Delete'
 
             const btnEdit = document.createElement('button');
-            btnEdit.onclick = () => cargarEdicion(cita); //139
+            btnEdit.onclick = () => cargarEdicion(cita); 
             btnEdit.classList.add('btn-edit');
             btnEdit.innerHTML = 'Edit'
 
@@ -169,16 +170,16 @@ class UI {
             list.appendChild(divCita);
 
             if(toggle){
-                let container = document.getElementById(id).parentElement;
+                let container = ID(id).parentElement;
                 container.classList.add('completedToggle') 
 
-                let label = document.getElementById(id).nextElementSibling; 
+                let label = ID(id).nextElementSibling; 
                 label.classList.add('label')
             } 
         })  
     }
 
-    cleanHTML() { 
+    cleanHTML(){ 
         while(list.firstChild) { 
             list.removeChild(list.firstChild)
         }
@@ -188,7 +189,8 @@ class UI {
 const ui = new UI();
 
 class Filters {
-        filter(key, val) { 
+
+        filter(key, val){ 
             if(key){ 
                 instCitas.search(key, val); ui.printCitas(instCitas)
             }else{
@@ -196,7 +198,7 @@ class Filters {
             }
         }  
 
-        cleanCompleted() { instCitas.completed(); ui.printCitas(instCitas) }   
+        cleanCompleted(){ instCitas.completed(); ui.printCitas(instCitas) }   
         
         cantActive(){instCitas.cant()}
 }
