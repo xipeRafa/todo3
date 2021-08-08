@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Administrador de Pacientes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>const ID = document.getElementById.bind(document);</script>
+<body>  
+
+        <div class="nav-menu">
+
+                <div id="citasActive">Items Active:00</div>
+
+                <div>
+                        <div id="all">All</div>
+                        <div id="completed">Completed</div>
+                        <div id="active">Active</div>
+                </div>
+
+                <div id="removeComplited">Clear Completed</div>
+
+        </div>
+  
+          
+        <form id="form">
+                <input
+                        class="input-search" 
+                        type="text" 
+                        placeholder="search" 
+                        onkeydown="javascript: /* if(event.keyCode == 13); */ instFilters.filter('inputTextName', this.value)"
+                />
+
+                <input type="text" id="inputTextId" name="inputTextName" autocomplete="off">
+
+                <button type="submit">TO DO</button>
+
+        </form>
+        
+        <div id="alerts"></div>
+
+        <div id="list"></div>
+        <div id="lists"></div>
+      
+          
+</body>
+<script src="app.js"></script>
+</html>
