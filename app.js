@@ -25,10 +25,10 @@ class Citas {
         this.citas = [];
     }
     
-    addCita(cita) { this.citas = [...this.citas, cita]; console.log(this.citas); instFilters.cantActive() } 
+    addCita(cita) { this.citas = [...this.citas, cita]; console.log('line 28', this.citas); instFilters.cantActive() } 
     /*addCita(cita) { this.citas.unshift(cita) } */
 
-    toggleItem(toggle) { this.citas.map( cita => cita.id === toggle ? cita.toggle = !cita.toggle : cita.toggle = cita.toggle );
+    toggleItem(toggle) { this.citas.map( cita => cita.id === toggle ? cita.toggle = !cita.toggle : cita);
                          instFilters.cantActive() }
 
     editCita(update) { this.citas = this.citas.map( cita => cita.id === update.id ? update : cita )}
@@ -45,13 +45,30 @@ class Citas {
             setTimeout(() => { this.citas = copy }, 10 )  
     }
     
-    completed(){ this.citas = this.citas.filter( cita => cita.toggle === false ) };
+    completed(){ 
+        this.citas = this.citas.filter( cita => cita.toggle === false )
+        instLS.addToLocalStorage()
+    };
 
     cant(){
         const Active = this.citas.filter(cita => cita.toggle === false)
         let cant = ID('citasActive'); 
         cant.innerHTML = `<p>Items Active: ${ Active.length } </p>`
     }
+
+    addToLocalStorage(){
+      localStorage.setItem('todos', JSON.stringify(this.citas));
+      console.log('siii')  
+    }
+    
+    getFromLocalStorage(){
+      const reference = localStorage.getItem('todos');
+      if (reference) {
+        this.citas = JSON.parse(reference);
+        console.log('fromLS:', JSON.parse(reference))
+      }  
+    }
+ 
 }
 
 const instCitas = new Citas();
@@ -77,6 +94,7 @@ function newCita(e) {
     ui.printCitas(instCitas);
     reiniciarObjeto() 
     form.reset();
+    instLS.addToLocalStorage()
 }
 
 function reiniciarObjeto() { citaObj.inputTextName = '' , citaObj.toggle = false }
@@ -84,6 +102,7 @@ function reiniciarObjeto() { citaObj.inputTextName = '' , citaObj.toggle = false
 function deleteCita(id) {
     instCitas.deleteCita(id);
     ui.printCitas(instCitas) //reload UI
+    instLS.addToLocalStorage()
 }
 
 function cargarEdicion(cita) {
@@ -186,6 +205,8 @@ class UI {
     }
 }
 
+
+
 const ui = new UI();
 
 class Filters {
@@ -204,3 +225,22 @@ class Filters {
 }
 
 const instFilters = new Filters(); 
+
+window.addEventListener("load", function(event) {
+    instLS.getFromLocalStorage();
+    instFilters.cantActive()
+  });
+
+class LS {
+  addToLocalStorage(){
+    instCitas.addToLocalStorage();
+  } 
+
+  getFromLocalStorage(){
+    instCitas.getFromLocalStorage()
+    ui.printCitas(instCitas)
+  }
+  
+}
+const instLS = new LS()
+
