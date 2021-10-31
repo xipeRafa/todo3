@@ -1,147 +1,148 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body{
-    width: 80%;
-    margin-left: 10%;
-    background-color: rgba(216, 220, 222,.3);
-    font-family: sans-serif;
-    text-align: center;
+  margin-top: 60px;
+  width: 80%;
+  margin-left: 10%;
+  background-color: rgba(216, 220, 222,.3);
+  font-family: sans-serif;
+  text-align: center;
 }
 #form{
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 #form>input[type="text"]{
-    width: 60%;
-    height: 22px;
-    background-color: #fff;
-    border: 1px solid #D1D1D1;
-    box-shadow: none;
-    box-sizing: border-box; 
-    outline: none;
-    padding-left: 10px;
+  width: 60%;
+  height: 22px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  box-shadow: none;
+  box-sizing: border-box; 
+  outline: none;
+  padding-left: 10px;
 }
 #form>button{
-    height: 22px;
-    cursor: pointer;
-    padding: 0 10px;
-    background-color: #fff;
-    border: 1px solid #D1D1D1;
-    box-shadow: none;
-    box-sizing: border-box; 
-    text-transform: uppercase;
-    color: #999;
+  height: 22px;
+  cursor: pointer;
+  padding: 0 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  box-shadow: none;
+  box-sizing: border-box; 
+  text-transform: uppercase;
+  color: #999;
 }
 #form>button:hover{
-    background-color: rgba(255, 255, 255, 0.712);
-    border: 1px solid #d1d1d1ad; 
+  background-color: rgba(255, 255, 255, 0.712);
+  border: 1px solid #d1d1d1ad; 
 } 
 .card-title{
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #list>div:first-child{
-    margin-top: 52px;
+  margin-top: 52px;
 }
 label{
-    color: rgba(0, 55, 128, 0.425);
-    float: right;
+  color: rgba(0, 55, 128, 0.425);
+  float: right;
 }
 .toggle{
-   
-    margin-left: 10px;
-    float: right;
+ 
+  margin-left: 10px;
+  float: right;
 }
 
 
 .divAlert{
-    width: 78%;
-    left: 11%;
-    top: 122px;
-    position: absolute;
-    padding: 5px;
+  width: 78%;
+  left: 11%;
+  top: 12px;
+  position: absolute;
+  padding: 5px;
 }
 .alert{
-    border: 1px solid darkred;
-    background:rgba(255, 0, 0, 0.062);
-    color: darkred;
+  border: 1px solid darkred;
+  background:rgb(245, 120, 120);
+  color: darkred;
 }
 .success{
-    border: 1px solid rgb(0, 139, 23);
-    background: rgba(0, 128, 0, 0.082);
-    color: rgb(0, 139, 23);
+  border: 1px solid rgb(0, 139, 23);
+  background: rgba(0, 128, 0, 0.082);
+  color: rgb(0, 139, 23);
 }
 .divCita{
-    text-align: left;
-    letter-spacing: .5px;
-    padding: 10px;
-    margin: 10px;
-    background: rgba(0, 0, 0, 0.11);
-    color: gray;
+  text-align: left;
+  letter-spacing: .5px;
+  padding: 10px;
+  margin: 10px;
+  background: rgba(0, 0, 0, 0.11);
+  color: gray;
 }
 
 .btn-danger{
-    margin: 6px;
-    background-color: brown;
-    border: 1px solid transparent;
-    color: rgba(255, 255, 255, 0.744);
-    padding: 2px;
-    border-radius: 2px;
+  margin: 6px;
+  background-color: brown;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.744);
+  padding: 2px;
+  border-radius: 2px;
 }
 .btn-edit{
-    margin: 6px;
-    padding: 2px 8px;
-    letter-spacing: 2px;
-    background-color:rgba(123, 148, 219, 0.863) ;
-    border: 1px solid transparent; 
-    color:rgba(255, 255, 255, 0.644);
-    border-radius: 2px;
+  margin: 6px;
+  padding: 2px 8px;
+  letter-spacing: 2px;
+  background-color:rgba(123, 148, 219, 0.863) ;
+  border: 1px solid transparent; 
+  color:rgba(255, 255, 255, 0.644);
+  border-radius: 2px;
 }
 .input-search{
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 /* -----------------checkbox-------------- */
 
 input[type="checkbox"]{
-    display: none;
+  display: none;
 }
 
 .completedToggle>h2{
-    text-decoration: line-through darkred;
-    color:rgba(128, 128, 128, 0.473);
+  text-decoration: line-through darkred;
+  color:rgba(128, 128, 128, 0.473);
 } 
 
 .label{
-    font-weight: bold;
-    color:darkred; 
-    font-size: 33px; 
-    border:none;
-    text-transform: uppercase;
+  font-weight: bold;
+  color:darkred; 
+  font-size: 33px; 
+  border:none;
+  text-transform: uppercase;
 }
 
 label{
-    border: 1px solid rgba(240, 240, 240);
-    padding: 6px;
-    border-radius: 3px;
+  border: 1px solid rgba(240, 240, 240);
+  padding: 6px;
+  border-radius: 3px;
 }
 
 /* ------------- nav menu filter-------------- */
 
 .nav-menu{
-    user-select: none;
-    cursor: pointer;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    color:rgba(70, 131, 180, 0.767);
+  user-select: none;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  color:rgba(70, 131, 180, 0.767);
 }
 .nav-menu>div:nth-child(2){
-    width: 50%;
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
 }
